@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pixel -Metadata- (RetroPie port)
+Modern ES-DE 3.4+ conversion of Eric Hettervik's RetroPie Pixel -Metadata- v1.4.
+
+Per-system theme.xml files declare their own <themeColor>/<selectColor> variables
+and include this file via <include>./../theme.xml</include>. Element redefinitions
+in the per-system file override the defaults below.
+-->
+<theme>
+
+    <!--====================================================================
+        SYSTEM VIEW: horizontal carousel of system logos
+    =====================================================================-->
+    <view name="system">
+
+        <image name="background">
+            <pos>0 0</pos>
+            <origin>0 0</origin>
+            <size>1 1</size>
+            <path>./art/systems_select.png</path>
+            <zIndex>10</zIndex>
+        </image>
+
+        <image name="console_overlay">
+            <pos>0.5 0.31</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.45 0.45</maxSize>
+            <path>./${system.theme}/console.png</path>
+            <zIndex>20</zIndex>
+        </image>
+
+        <image name="system_front">
+            <pos>0 0</pos>
+            <origin>0 0</origin>
+            <size>1 1</size>
+            <path>./art/systemfront.png</path>
+            <zIndex>30</zIndex>
+        </image>
+
+        <text name="systemInfo">
+            <pos>0 0.875</pos>
+            <size>1 0.035</size>
+            <text>${system.fullName}</text>
+            <fontPath>./art/font.ttf</fontPath>
+            <fontSize>0.027</fontSize>
+            <color>ffffff00</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <verticalAlignment>center</verticalAlignment>
+            <zIndex>40</zIndex>
+        </text>
+
+        <text name="systemGameCount">
+            <pos>0 0.915</pos>
+            <size>1 0.030</size>
+            <systemdata>gamecount</systemdata>
+            <fontPath>./art/font.ttf</fontPath>
+            <fontSize>0.022</fontSize>
+            <color>bc14ffd0</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <verticalAlignment>center</verticalAlignment>
+            <zIndex>41</zIndex>
+        </text>
+
+        <carousel name="systemcarousel">
+            <pos>0 0.62</pos>
+            <size>1 0.22</size>
+            <type>horizontal</type>
+            <staticImage>./${system.theme}/logo.png</staticImage>
+            <defaultImage>./art/invisible.png</defaultImage>
+            <itemSize>0.13 0.09</itemSize>
+            <itemScale>2.7</itemScale>
+            <maxItemCount>5</maxItemCount>
+            <selectedItemMargins>0.02 0.02</selectedItemMargins>
+            <imageFit>contain</imageFit>
+            <color>00000000</color>
+            <text>${system.fullName}</text>
+            <fontPath>./art/font.ttf</fontPath>
+            <fontSize>0.035</fontSize>
+            <textColor>ffffff</textColor>
+            <zIndex>50</zIndex>
+        </carousel>
+
+        <helpsystem name="help">
+            <pos>0.012 0.962</pos>
+            <textColor>acacac</textColor>
+            <iconColor>acacac</iconColor>
+            <fontPath>./art/font.ttf</fontPath>
+            <fontSize>0.033</fontSize>
+        </helpsystem>
+
+    </view>
+
+    <!--====================================================================
+        GAMELIST: textlistBasic variant (no game media; centered uppercase list)
+    =====================================================================-->
+    <variant name="textlistBasic">
+        <view name="gamelist">
+
+            <image name="background">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/systemback.png</path>
+                <color>808080</color>
+                <zIndex>10</zIndex>
+            </image>
+
+            <image name="border_overlay">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/border_simple.png</path>
+                <zIndex>20</zIndex>
+            </image>
+
+            <image name="system_logo">
+                <pos>0.5 0.105</pos>
+                <origin>0.5 0.5</origin>
+                <maxSize>0.315 0.125</maxSize>
+                <path>./${system.theme}/logo.png</path>
+                <zIndex>30</zIndex>
+            </image>
+
+            <textlist name="gamelist">
+                <pos>0.034 0.235</pos>
+                <size>0.933 0.647</size>
+                <horizontalAlignment>center</horizontalAlignment>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.04</fontSize>
+                <primaryColor>ffffff</primaryColor>
+                <secondaryColor>871F78</secondaryColor>
+                <selectedColor>bc14ff</selectedColor>
+                <selectorImagePath>./art/selector-basic.png</selectorImagePath>
+                <selectorImageTile>false</selectorImageTile>
+                <selectorVerticalOffset>0</selectorVerticalOffset>
+                <selectorHeight>0.06</selectorHeight>
+                <selectorColor>ffffff</selectorColor>
+                <letterCase>uppercase</letterCase>
+                <lineSpacing>1.5</lineSpacing>
+                <zIndex>40</zIndex>
+            </textlist>
+
+            <helpsystem name="help">
+                <pos>0.012 0.960</pos>
+                <textColor>ffffff</textColor>
+                <iconColor>ffffff</iconColor>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.033</fontSize>
+            </helpsystem>
+
+        </view>
+    </variant>
+
+    <!--====================================================================
+        GAMELIST: textlistWithImages variant (left textlist + right md_image + metadata)
+    =====================================================================-->
+    <variant name="textlistWithImages">
+        <view name="gamelist">
+
+            <image name="background">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/background.png</path>
+                <color>808080</color>
+                <zIndex>10</zIndex>
+            </image>
+
+            <image name="border_overlay">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/border.png</path>
+                <zIndex>20</zIndex>
+            </image>
+
+            <image name="system_logo">
+                <pos>0.274 0.114</pos>
+                <origin>0.5 0.5</origin>
+                <maxSize>0.418 0.115</maxSize>
+                <path>./${system.theme}/logo.png</path>
+                <zIndex>30</zIndex>
+            </image>
+
+            <textlist name="gamelist">
+                <pos>0.034 0.258</pos>
+                <size>0.483 0.63</size>
+                <horizontalAlignment>left</horizontalAlignment>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.03</fontSize>
+                <primaryColor>ffffff</primaryColor>
+                <secondaryColor>871F78</secondaryColor>
+                <selectedColor>ffffff</selectedColor>
+                <selectorImagePath>./art/selector.png</selectorImagePath>
+                <selectorImageTile>false</selectorImageTile>
+                <selectorVerticalOffset>0.0075</selectorVerticalOffset>
+                <selectorHeight>0.0295</selectorHeight>
+                <selectorColor>80808040</selectorColor>
+                <lineSpacing>1.5</lineSpacing>
+                <zIndex>40</zIndex>
+            </textlist>
+
+            <image name="md_image">
+                <pos>0.771 0.219</pos>
+                <origin>0.5 0.5</origin>
+                <maxSize>0.384 0.322</maxSize>
+                <imageType>miximage, screenshot, titlescreen, cover</imageType>
+                <zIndex>35</zIndex>
+            </image>
+
+            <datetime name="md_releasedate">
+                <pos>0.566 0.465</pos>
+                <size>0.192 0.030</size>
+                <metadata>releasedate</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </datetime>
+
+            <text name="md_developer">
+                <pos>0.566 0.524</pos>
+                <size>0.192 0.030</size>
+                <metadata>developer</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <text name="md_genre">
+                <pos>0.566 0.568</pos>
+                <size>0.192 0.030</size>
+                <metadata>genre</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <datetime name="md_lastplayed">
+                <pos>0.566 0.601</pos>
+                <size>0.192 0.030</size>
+                <metadata>lastplayed</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </datetime>
+
+            <text name="md_players">
+                <pos>0.845 0.477</pos>
+                <size>0.150 0.030</size>
+                <metadata>players</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <text name="md_publisher">
+                <pos>0.774 0.523</pos>
+                <size>0.192 0.030</size>
+                <metadata>publisher</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <rating name="md_rating">
+                <pos>0.774 0.568</pos>
+                <size>0.192 0.030</size>
+                <filledPath>./art/star_filled.svg</filledPath>
+                <unfilledPath>./art/star_empty.svg</unfilledPath>
+                <zIndex>40</zIndex>
+            </rating>
+
+            <text name="md_description">
+                <pos>0.567 0.663</pos>
+                <size>0.400 0.209</size>
+                <metadata>description</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <verticalAlignment>top</verticalAlignment>
+                <lineSpacing>1.3</lineSpacing>
+                <container>true</container>
+                <zIndex>40</zIndex>
+            </text>
+
+            <helpsystem name="help">
+                <pos>0.012 0.960</pos>
+                <textColor>ffffff</textColor>
+                <iconColor>ffffff</iconColor>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.033</fontSize>
+            </helpsystem>
+
+        </view>
+    </variant>
+
+    <!--====================================================================
+        GAMELIST: textlistWithVideos variant (Images variant + md_video + md_marquee)
+    =====================================================================-->
+    <variant name="textlistWithVideos">
+        <view name="gamelist">
+
+            <image name="background">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/background.png</path>
+                <color>808080</color>
+                <zIndex>10</zIndex>
+            </image>
+
+            <image name="border_overlay">
+                <pos>0 0</pos>
+                <origin>0 0</origin>
+                <size>1 1</size>
+                <path>./art/border.png</path>
+                <zIndex>20</zIndex>
+            </image>
+
+            <image name="system_logo">
+                <pos>0.274 0.114</pos>
+                <origin>0.5 0.5</origin>
+                <maxSize>0.418 0.115</maxSize>
+                <path>./${system.theme}/logo.png</path>
+                <zIndex>30</zIndex>
+            </image>
+
+            <textlist name="gamelist">
+                <pos>0.034 0.258</pos>
+                <size>0.483 0.63</size>
+                <horizontalAlignment>left</horizontalAlignment>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.03</fontSize>
+                <primaryColor>ffffff</primaryColor>
+                <secondaryColor>871F78</secondaryColor>
+                <selectedColor>ffffff</selectedColor>
+                <selectorImagePath>./art/selector.png</selectorImagePath>
+                <selectorImageTile>false</selectorImageTile>
+                <selectorVerticalOffset>0.0075</selectorVerticalOffset>
+                <selectorHeight>0.0295</selectorHeight>
+                <selectorColor>80808040</selectorColor>
+                <lineSpacing>1.5</lineSpacing>
+                <zIndex>40</zIndex>
+            </textlist>
+
+            <video name="md_video">
+                <pos>0.771 0.219</pos>
+                <origin>0.5 0.5</origin>
+                <maxSize>0.384 0.322</maxSize>
+                <imageType>miximage, screenshot, titlescreen, cover</imageType>
+                <delay>2</delay>
+                <zIndex>35</zIndex>
+            </video>
+
+            <!-- md_marquee removed globally: scraped systems already show the logo
+                 baked into their miximage (md_video), so a separate marquee here
+                 duplicated it. Systems that use a screenshot instead of a miximage
+                 (e.g. steam) re-add this element in their own per-system theme.xml. -->
+            <!--
+            <image name="md_marquee">
+                <pos>0.57 0.035</pos>
+                <origin>0 0</origin>
+                <maxSize>0.3 0.1</maxSize>
+                <imageType>marquee</imageType>
+                <zIndex>36</zIndex>
+            </image>
+            -->
+
+            <datetime name="md_releasedate">
+                <pos>0.566 0.465</pos>
+                <size>0.192 0.030</size>
+                <metadata>releasedate</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </datetime>
+
+            <text name="md_developer">
+                <pos>0.566 0.524</pos>
+                <size>0.192 0.030</size>
+                <metadata>developer</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <text name="md_genre">
+                <pos>0.566 0.568</pos>
+                <size>0.192 0.030</size>
+                <metadata>genre</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <datetime name="md_lastplayed">
+                <pos>0.566 0.601</pos>
+                <size>0.192 0.030</size>
+                <metadata>lastplayed</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </datetime>
+
+            <text name="md_players">
+                <pos>0.845 0.477</pos>
+                <size>0.150 0.030</size>
+                <metadata>players</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <text name="md_publisher">
+                <pos>0.774 0.523</pos>
+                <size>0.192 0.030</size>
+                <metadata>publisher</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <zIndex>40</zIndex>
+            </text>
+
+            <rating name="md_rating">
+                <pos>0.774 0.568</pos>
+                <size>0.192 0.030</size>
+                <filledPath>./art/star_filled.svg</filledPath>
+                <unfilledPath>./art/star_empty.svg</unfilledPath>
+                <zIndex>40</zIndex>
+            </rating>
+
+            <text name="md_description">
+                <pos>0.567 0.663</pos>
+                <size>0.400 0.209</size>
+                <metadata>description</metadata>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.025</fontSize>
+                <color>ffffff</color>
+                <horizontalAlignment>left</horizontalAlignment>
+                <verticalAlignment>top</verticalAlignment>
+                <lineSpacing>1.3</lineSpacing>
+                <container>true</container>
+                <zIndex>40</zIndex>
+            </text>
+
+            <helpsystem name="help">
+                <pos>0.012 0.960</pos>
+                <textColor>ffffff</textColor>
+                <iconColor>ffffff</iconColor>
+                <fontPath>./art/font.ttf</fontPath>
+                <fontSize>0.033</fontSize>
+            </helpsystem>
+
+        </view>
+    </variant>
+
+</theme>

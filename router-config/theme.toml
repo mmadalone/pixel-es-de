@@ -1,0 +1,32 @@
+# MAD control-panel theme sidecar for the "pixel-es-de" ES-DE theme.
+#
+# MAD (the controller-router / Deck control panel) reads this file to recolour its
+# UI so it matches this ES-DE theme. ES-DE itself ignores everything in this
+# router-config/ folder, so it's safe here and travels with the theme.
+#
+# ALL KEYS ARE OPTIONAL — anything you omit, MAD derives from the theme's theme.xml
+# or falls back to its built-in dark palette.
+#
+# ⚠ ONE RULE: quote every hex colour. TOML treats an unquoted '#' as a comment,
+#   so `accent = #bc14ff` would be read as empty. Always: accent = "#bc14ff".
+
+schema = 1
+
+# ── palette (6-digit hex, quoted) ───────────────────────────────────────────
+bg            = "#101820"   # window background (keep it dark for TV legibility)
+panel         = "#16222e"   # sidebar / card / section background
+row           = "#1d2c3a"   # resting background of buttons & controls
+border        = "#2c3a4a"   # unfocused control border
+fg            = "#ffffff"   # primary text
+fgDim         = "#8da2b0"   # captions / secondary text
+accent        = "#bc14ff"   # headings, Player-1, accents (pixel-es-de magenta)
+accent2       = "#ff5cf0"   # secondary accent
+selectBg      = "#bc14ff"   # background of the FOCUSED control
+selectFg      = "#ffffff"   # text of the focused control
+selectorColor = "#ff5cf0"   # the focus-ring colour (bright = easy to spot at 10 ft)
+
+# ── font ─────────────────────────────────────────────────────────────────────
+font     = "SF Pixelate"    # family name as fontconfig sees it (fc-scan)
+# fontFile = "art/font.ttf"  # OR a theme-relative .ttf to install + use instead
+pixelFont = true            # pixel/bitmap font: MAD snaps integer sizes, no AA tricks
+# fontSizePt = 13           # optional base point size hint

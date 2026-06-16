@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+
+    <variables>
+        <themeColor>8b8b8b</themeColor>
+        <selectColor>5fafff</selectColor>
+    </variables>
+
+    <include>./../theme.xml</include>
+
+    <view name="system">
+        <image name="background">
+            <color>${themeColor}</color>
+        </image>
+        <image name="console_overlay">
+            <path>./console.png</path>
+        </image>
+    </view>
+
+    <variant name="textlistBasic">
+        <view name="gamelist">
+            <image name="background">
+                <color>${themeColor}</color>
+            </image>
+            <textlist name="gamelist">
+                <selectedColor>${selectColor}</selectedColor>
+            </textlist>
+        </view>
+    </variant>
+
+    <variant name="textlistWithImages">
+        <view name="gamelist">
+            <image name="background">
+                <color>${themeColor}</color>
+            </image>
+            <textlist name="gamelist">
+                <selectorColor>${themeColor}40</selectorColor>
+            </textlist>
+        </view>
+    </variant>
+
+    <variant name="textlistWithVideos">
+        <view name="gamelist">
+            <image name="background">
+                <color>${themeColor}</color>
+            </image>
+            <textlist name="gamelist">
+                <selectorColor>${themeColor}40</selectorColor>
+            </textlist>
+        </view>
+    </variant>
+
+</theme>

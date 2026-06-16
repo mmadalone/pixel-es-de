@@ -1,0 +1,55 @@
+<theme>
+    <formatVersion>4</formatVersion>
+
+    <!-- inherit main ES-DE Pixel theme -->
+    <include>./../theme.xml</include>
+
+    <variables>
+        <!-- per-system color; you can edit this per system later -->
+        <themeColor>fda504</themeColor>
+    </variables>
+
+    <!-- SYSTEM VIEW (system select screen) -->
+    <view name="system">
+
+        <!-- tint background with system color -->
+        <image name="background">
+            <color>${themeColor}</color>
+        </image>
+
+        <!-- use this system's console and logo -->
+        <image name="console_overlay">
+            <path>./console.png</path>
+        </image>
+
+        <image name="logo">
+            <path>./logo.png</path>
+        </image>
+
+    </view>
+
+    <!-- GAMELIST VIEW (game list) -->
+    <view name="gamelist">
+
+        <!-- system logo in gamelist -->
+        <image name="logo">
+            <path>./logo.png</path>
+        </image>
+
+        <!-- colored background -->
+        <image name="background">
+            <color>${themeColor}</color>
+        </image>
+
+        <!-- optional simple border -->
+        <image name="Border Overlay">
+            <path>./../art/border_simple.png</path>
+        </image>
+
+        <!-- selected game color -->
+        <textlist name="gamelist">
+            <selectedColor>${themeColor}</selectedColor>
+        </textlist>
+
+    </view>
+</theme>
