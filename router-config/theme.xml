@@ -12,9 +12,6 @@
         <image name="background">
             <color>${themeColor}</color>
         </image>
-        <image name="console_overlay">
-            <path>./console.png</path>
-        </image>
     </view>
 
     <variant name="textlistBasic">
