@@ -2,5 +2,6 @@
 .DS_Store
 Thumbs.db
 *.swp
+*.orig
 __pycache__/
 *.pyc
