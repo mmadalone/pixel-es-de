@@ -3,5 +3,7 @@
 Thumbs.db
 *.swp
 *.orig
+*.old
+*.lnk
 __pycache__/
 *.pyc
